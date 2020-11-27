@@ -5,9 +5,10 @@
   "author": "siner308 <siner308@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "gatsby develop",
+    "start": "npm run build && npm run serve",
     "develop": "gatsby develop",
-    "build": "gatsby build",
+    "build": "tsc--noEmit && gatsby build",
+    "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
     "test": "jest"
