@@ -12,7 +12,10 @@ export const pageQuery: void = graphql`
         siteName
       }
     }
-    allFile(sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }) {
+    allFile(
+      filter: { extension: { eq: "md" } }
+      sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
+    ) {
       totalCount
       nodes {
         id
