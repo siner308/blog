@@ -6,3 +6,41 @@
 
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
+
+import { PageProps } from 'gatsby';
+import { FileSystemNode } from 'gatsby-source-filesystem';
+
+export interface IndexQueryProps {
+  site: {
+    siteMetadata: {
+      siteName: string;
+    };
+  };
+  allFile: AllFile;
+}
+
+export interface AllFile {
+  totalCount: number;
+  // pageInfo: {
+  //   currentPage: number;
+  //   hasNextPage: boolean;
+  //   hasPreviousPage: boolean;
+  // };
+  nodes: MarkdownRemarkNode[];
+}
+
+export interface RemarkableFileSystemNode extends FileSystemNode {
+  childMarkdownRemark: ChileMarkdownRemark;
+}
+
+export type ChileMarkdownRemark = {
+  id: string;
+  excerpt: string;
+  frontmatter: {
+    title: string;
+    subtitle: string;
+    date: string;
+  };
+};
+
+export type IndexPageProps = PageProps<IndexQueryProps>;

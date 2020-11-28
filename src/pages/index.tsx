@@ -1,16 +1,9 @@
-import { graphql, PageProps } from "gatsby";
-import React from "react";
-import Layout from "../components/layout";
-
-interface IndexPageProps extends PageProps {
-  data: {
-    site: {
-      siteMetadata: {
-        siteName: string;
-      };
-    };
-  };
-}
+import { graphql } from 'gatsby';
+import React from 'react';
+import Layout from '../components/layout';
+import Footer from '../components/footer';
+import PostList from '../components/postlist';
+import { IndexPageProps } from '../declarations';
 
 export const pageQuery: void = graphql`
   query IndexQuery {
@@ -19,18 +12,37 @@ export const pageQuery: void = graphql`
         siteName
       }
     }
+    allFile(sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }) {
+      totalCount
+      nodes {
+        id
+        childMarkdownRemark {
+          excerpt(format: PLAIN, truncate: false)
+          id
+          frontmatter {
+            title
+            subtitle
+            date(formatString: "YYYY년 MM월 DD일")
+          }
+        }
+        name
+      }
+    }
   }
 `;
 
-export default class IndexPage extends React.Component<IndexPageProps> {
-  public render(): JSX.Element {
-    const { siteName } = this.props.data.site.siteMetadata;
-    return (
+const Index = ({ data }: IndexPageProps): JSX.Element => {
+  const { siteName } = data.site.siteMetadata;
+  const allFile = data.allFile;
+  return (
+    <>
       <Layout>
-        <h1>Gatsby 블로그 구축중</h1>
-        <p>조금만 기다려주세요...</p>
-        <p>{siteName}</p>
+        <h1>{siteName}</h1>
+        <PostList allFile={allFile} />
+        <Footer />
       </Layout>
-    );
-  }
-}
+    </>
+  );
+};
+
+export default Index;

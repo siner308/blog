@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import { rhythm } from "../utils/typography";
+import { rhythm } from '../utils/typography';
 
 const Layout: React.FC = ({ children }: { children?: React.ReactNode }) => (
   <div
     style={{
-      margin: "0 auto",
+      margin: '0 auto',
       marginBottom: rhythm(1.5),
       marginTop: rhythm(1.5),
-      maxWidth: 650,
+      maxWidth: 966,
       paddingLeft: rhythm(3 / 4),
       paddingRight: rhythm(3 / 4),
     }}
