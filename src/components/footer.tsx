@@ -13,6 +13,7 @@ const Footer: React.FC = () => {
         width: '100%',
         textAlign: 'center',
         margin: '0 auto',
+        backgroundColor: 'white',
       }}
     >
       <span style={{ margin: '0 .1rem' }}>
