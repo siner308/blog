@@ -4,6 +4,8 @@ import Layout from '../components/layout';
 import Footer from '../components/footer';
 import PostList from '../components/postlist';
 import { IndexPageProps } from '../declarations';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+deckDeckGoHighlightElement();
 
 export const pageQuery: void = graphql`
   query IndexQuery {
@@ -25,7 +27,7 @@ export const pageQuery: void = graphql`
           frontmatter {
             title
             subtitle
-            date(formatString: "YYYY년 MM월 DD일")
+            date(formatString: "YYYY/MM/DD")
           }
         }
         name
