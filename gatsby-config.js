@@ -27,6 +27,9 @@ module.exports = {
         plugins: [
           {
             resolve: 'gatsby-remark-highlight-code',
+            options: {
+              theme: 'one-light',
+            },
           },
         ],
       },

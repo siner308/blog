@@ -22,7 +22,7 @@ export const pageQuery: void = graphql`
       nodes {
         id
         childMarkdownRemark {
-          excerpt(format: PLAIN, truncate: false)
+          excerpt(format: PLAIN, pruneLength: 210)
           id
           frontmatter {
             title
