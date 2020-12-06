@@ -37,7 +37,7 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
           {childMarkdownRemark.frontmatter.subtitle && (
             <div style={{ fontWeight: 'normal' }}>{childMarkdownRemark.frontmatter.subtitle}</div>
           )}
-          <div style={{ fontWeight: 'lighter' }}>{childMarkdownRemark.excerpt}</div>
+          <div style={{ fontWeight: 'lighter', fontSize: 'smaller' }}>{childMarkdownRemark.excerpt}</div>
         </div>
       </Link>
     </div>
