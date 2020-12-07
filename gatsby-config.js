@@ -26,10 +26,7 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-highlight-code',
-            options: {
-              theme: 'one-light',
-            },
+            resolve: 'gatsby-remark-prismjs',
           },
         ],
       },
