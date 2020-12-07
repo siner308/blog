@@ -5,9 +5,10 @@
   "author": "siner308 <siner308@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "update-posts": "git submodule update --remote",
     "start": "npm run build && npm run serve",
     "develop": "gatsby develop",
-    "build": "tsc--noEmit && gatsby build",
+    "build": "npm run update-posts && gatsby build",
     "serve": "gatsby serve",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
