@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     siteName: "Siner's Blog",
-    githubUrl: 'https://github.com/siner308',
+    githubUrl: 'https://github.com/siner308/blog',
   },
   plugins: [
     // `gatsby-plugin-typescript` is automatically included in gatsby
