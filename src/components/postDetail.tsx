@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from './layout';
 
 const Post = ({ data }: any): JSX.Element => {
@@ -37,30 +37,6 @@ const Post = ({ data }: any): JSX.Element => {
         >
           ⬆
         </button>
-      </div>
-      <div
-        style={{
-          position: 'fixed',
-          zIndex: 99,
-          borderRadius: '10px',
-          top: '20px',
-          left: '30px',
-          border: 'none',
-          outline: 'none',
-          padding: '15px',
-          alignSelf: 'center',
-          fontSize: '18px',
-        }}
-      >
-        <Link to="/">
-          <button
-            style={{
-              cursor: 'pointer',
-            }}
-          >
-            ⬅
-          </button>
-        </Link>
       </div>
     </Layout>
   );
