@@ -1,11 +1,17 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from './layout';
+import { Helmet } from 'react-helmet';
 
 const Post = ({ data }: any): JSX.Element => {
   const post = data.markdownRemark;
   return (
     <Layout>
+      <Helmet>
+        <meta charSet={'utf-8'} />
+        <title>{post.frontmatter.title}</title>
+        <meta name="description" content={post.frontmatter.subtitle} />
+      </Helmet>
       <div>
         <h1>{post.frontmatter.title}</h1>
         <h3>{post.frontmatter.subtitle}</h3>

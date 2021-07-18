@@ -5,6 +5,7 @@ import Footer from '../components/footer';
 import PostList from '../components/postlist';
 import { IndexPageProps } from '../declarations';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+import { Helmet } from 'react-helmet';
 deckDeckGoHighlightElement();
 
 export const pageQuery: void = graphql`
@@ -42,6 +43,10 @@ const Index = ({ data }: IndexPageProps): JSX.Element => {
   return (
     <>
       <Layout>
+        <Helmet>
+          <meta charSet={'utf-8'} />
+          <title>{"Siner's Blog"}</title>
+        </Helmet>
         <h1>{siteName}</h1>
         <PostList allFile={allFile} />
         <Footer />
