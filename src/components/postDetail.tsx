@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from './layout';
 import { Helmet } from 'react-helmet';
+import Comments from './Comments';
 
 const Post = ({ data }: any): JSX.Element => {
   const post = data.markdownRemark;
@@ -17,6 +18,7 @@ const Post = ({ data }: any): JSX.Element => {
         <h3>{post.frontmatter.subtitle}</h3>
         <p>{post.frontmatter.date}</p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <Comments />
       </div>
       <div
         style={{
