@@ -37,15 +37,15 @@ export const pageQuery: void = graphql`
   }
 `;
 
-const Index = ({ data }: IndexPageProps): JSX.Element => {
-  const { siteName } = data.site.siteMetadata;
-  const allFile = data.allFile;
+const Index = (props: IndexPageProps): JSX.Element => {
+  const { siteName } = props.data.site.siteMetadata;
+  const allFile = props.data.allFile;
   return (
     <>
       <Layout>
         <Helmet>
           <meta charSet={'utf-8'} />
-          <title>{"Siner's Blog"}</title>
+          <title>{siteName}</title>
         </Helmet>
         <h1>{siteName}</h1>
         <PostList allFile={allFile} />

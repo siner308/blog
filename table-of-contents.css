@@ -1,0 +1,15 @@
+.table-of-contents {
+  color: black;
+}
+
+.table-of-contents a:link {
+  color: gray;
+}
+
+.table-of-contents a:visited {
+  color: gray;
+}
+
+.table-of-contents li {
+  list-style: none;
+}
