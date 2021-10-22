@@ -36,6 +36,7 @@ export interface RemarkableFileSystemNode extends FileSystemNode {
 export type ChileMarkdownRemark = {
   id: string;
   excerpt: string;
+  tableOfContents: string;
   frontmatter: {
     title: string;
     subtitle: string;
