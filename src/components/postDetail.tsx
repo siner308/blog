@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Layout from './layout';
 import { Helmet } from 'react-helmet';
 import Comments from './Comments';
+import Tag from './tag';
 
 const PostDetail = ({ data }: any): JSX.Element => {
   const post = data.markdownRemark;
@@ -10,16 +11,16 @@ const PostDetail = ({ data }: any): JSX.Element => {
   return (
     <Layout>
       <Helmet>
-        <meta charSet={'utf-8'} />
+        <meta charSet={'utf-8'}/>
         <title>{post.frontmatter.title}</title>
-        <meta name="description" content={post.frontmatter.subtitle} />
+        <meta name="description" content={post.frontmatter.subtitle}/>
       </Helmet>
       <div>
         <Link to={'/'} style={{ fontSize: 'large', color: 'black', textDecoration: 'none' }}>
           <h1>{site.siteMetadata.siteName}</h1>
         </Link>
       </div>
-      <hr />
+      <hr/>
       <div>
         <h1>{post.frontmatter.title}</h1>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -32,10 +33,17 @@ const PostDetail = ({ data }: any): JSX.Element => {
       {/*  className={'table-of-contents'}*/}
       {/*  style={{ right: 30 }}*/}
       {/*/>*/}
-      <hr />
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr />
-      <Comments />
+      <hr/>
+      <div dangerouslySetInnerHTML={{ __html: post.html }}/>
+      <div>
+        {post.frontmatter.tags && post.frontmatter.tags.map((tag: string, idx: number) => {
+          const marginRight: number = idx != post.frontmatter.tags.length - 1 ? 4 : 0;
+          return <Tag tag={tag} marginRight={marginRight}/>;
+        })}
+      </div>
+      <br/>
+      <hr/>
+      <Comments/>
       <div
         style={{
           position: 'fixed',
@@ -79,6 +87,7 @@ export const pageQuery: void = graphql`
       html
       tableOfContents(absolute: false)
       frontmatter {
+        tags
         title
         subtitle
         date(formatString: "YYYY/MM/DD")

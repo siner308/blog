@@ -1,6 +1,7 @@
 import React from 'react';
 import { AllFile, RemarkableFileSystemNode } from '../declarations';
 import Post from './post';
+import Tag from './tag';
 
 const PostList = ({ allFile }: { allFile: AllFile }): JSX.Element => {
   const { nodes, totalCount } = allFile;
@@ -8,7 +9,7 @@ const PostList = ({ allFile }: { allFile: AllFile }): JSX.Element => {
     <>
       <div>
         <p>{totalCount}개의 게시글이 있습니다.</p>
-        {totalCount && nodes.map((node: RemarkableFileSystemNode) => <Post key={node.id} node={node} />)}
+        {totalCount && nodes.map((node: RemarkableFileSystemNode) => <Post key={node.id} node={node}/>)}
       </div>
       <div
         style={{
