@@ -86,13 +86,15 @@ const Index = (props: IndexPageProps): JSX.Element => {
         </div>
         <PostList allFile={filteredFiles}/>
         <div>
-          <Link to='/'><span
+          <Link to='/'><button
             style={{
               marginRight: 8,
               backgroundColor: 'antiquewhite',
               borderRadius: '6px',
+              border: 'hidden',
               padding: 2,
-            }}>#all</span>
+              cursor: 'pointer',
+            }}>#all</button>
           </Link>
           {tags.sort().map((tag) => <Tag key={tag} tag={tag} marginRight={8}/>)}
         </div>

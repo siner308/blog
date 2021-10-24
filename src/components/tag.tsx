@@ -9,13 +9,15 @@ export interface TagProps {
 const Tag = (props: TagProps): JSX.Element => {
   const { tag, marginRight } = props;
   return (
-    <Link to={`/tag/${tag.toLowerCase()}/`}><span
+    <Link to={`/tag/${tag.toLowerCase()}/`}><button
       style={{
         marginRight,
         backgroundColor: 'antiquewhite',
         borderRadius: '6px',
+        border: 'hidden',
         padding: 2,
-      }}>#{tag.toLowerCase()}</span>
+        cursor: 'pointer',
+      }}>#{tag.toLowerCase()}</button>
     </Link>
   );
 };
