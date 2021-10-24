@@ -16,7 +16,8 @@ export interface IndexQueryProps {
       siteName: string;
     };
   };
-  allFile: AllFile;
+  filteredFiles: AllFile;
+  allFilesForTags: AllFile;
 }
 
 export interface AllFile {
@@ -41,6 +42,7 @@ export type ChileMarkdownRemark = {
     title: string;
     subtitle: string;
     date: string;
+    tags: string[];
   };
 };
 

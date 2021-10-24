@@ -17,6 +17,7 @@ exports.createPages = async function ({ actions, graphql }) {
       allMarkdownRemark {
         nodes {
           frontmatter {
+            tags
             date(formatString: "YYYY/MM/DD")
           }
           fields {
@@ -26,6 +27,8 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `);
+
+  // create each pages
   data.allMarkdownRemark.nodes.forEach((node) => {
     const dateForPath = node.frontmatter.date;
     const slug = node.fields.slug;
@@ -36,4 +39,21 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { slug },
     });
   });
+
+  // create tag filter result
+  const tags = [];
+  data.allMarkdownRemark.nodes.forEach((node) => {
+    node.frontmatter.tags.forEach((tag) => {
+      if (!tags.includes(tag)) tags.push(tag);
+    })
+  })
+
+  tags.forEach((tag) => {
+    const path = `tag/${tag}`;
+    actions.createPage({
+      path,
+      component: require.resolve(`${__dirname}/src/pages/index.tsx`),
+      context: { tag },
+    })
+  })
 };

@@ -1,5 +1,5 @@
 export function getPostPath(date: string, fileName: string): string {
-  return `${date}/${fileName}`;
+  return `/${date}/${fileName}`;
 }
 
 export interface DateJson {
