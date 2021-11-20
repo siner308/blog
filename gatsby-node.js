@@ -35,7 +35,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const path = `${dateForPath}${slug}`;
     actions.createPage({
       path,
-      component: require.resolve(`${__dirname}/src/components/postDetail.tsx`),
+      component: require.resolve(`${__dirname}/src/components/PostDetail.tsx`),
       context: { slug },
     });
   });
