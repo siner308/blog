@@ -5,4 +5,4 @@
 [submodule "aboutme"]
 	path = aboutme
 	url = https://github.com/siner308/aboutme
-	branch = master
+	branch = main
