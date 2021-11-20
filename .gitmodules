@@ -2,3 +2,7 @@
 	path = blog-posts
 	url = https://github.com/siner308/blog-posts
 	branch = master
+[submodule "aboutme"]
+	path = aboutme
+	url = https://github.com/siner308/aboutme
+	branch = master

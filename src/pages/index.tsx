@@ -1,12 +1,12 @@
 import { graphql, Link } from 'gatsby';
 import React from 'react';
-import Layout from '../components/layout';
-import Footer from '../components/footer';
-import PostList from '../components/postlist';
+import Layout from '../components/Layout';
+import Footer from '../components/Footer';
+import PostList from '../components/PostList';
 import { IndexPageProps, RemarkableFileSystemNode } from '../declarations';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import { Helmet } from 'react-helmet';
-import Tag from '../components/tag';
+import Tag from '../components/Tag';
 
 deckDeckGoHighlightElement();
 
@@ -17,21 +17,7 @@ export const pageQuery: void = graphql`
                 siteName
             }
         }
-        filteredFiles: allFile(
-            filter: {
-                extension: { eq: "md" },
-                childrenMarkdownRemark: {
-                    elemMatch: {
-                        frontmatter: {
-                            tags: {
-                                eq: $tag
-                            }
-                        }
-                    }
-                }
-            }
-            sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
-        ) {
+        filteredFiles: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}, childrenMarkdownRemark: {elemMatch: {frontmatter: {tags: {eq: $tag}}}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
             totalCount
             nodes {
                 id
@@ -47,17 +33,13 @@ export const pageQuery: void = graphql`
                 name
             }
         }
-        allFilesForTags: allFile(
-            filter: {
-                extension: { eq: "md" }
-            }
-        ) {
+        allFilesForTags: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}}) {
             nodes {
-              childMarkdownRemark {
-                  frontmatter {
-                      tags
-                  }
-              }
+                childMarkdownRemark {
+                    frontmatter {
+                        tags
+                    }
+                }
             }
         }
     }
@@ -74,16 +56,7 @@ const Index = (props: IndexPageProps): JSX.Element => {
   });
   return (
     <>
-      <Layout>
-        <Helmet>
-          <meta charSet={'utf-8'}/>
-          <title>{site.siteMetadata.siteName}</title>
-        </Helmet>
-        <div>
-          <Link to={'/'} style={{ fontSize: 'large', color: 'black', textDecoration: 'none' }}>
-            <h1>{site.siteMetadata.siteName}</h1>
-          </Link>
-        </div>
+      <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName}>
         <PostList allFile={filteredFiles}/>
         <div>
           <Link to='/'><button
