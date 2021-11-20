@@ -17,21 +17,7 @@ export const pageQuery: void = graphql`
                 siteName
             }
         }
-        filteredFiles: allFile(
-            filter: {
-                extension: { eq: "md" },
-                childrenMarkdownRemark: {
-                    elemMatch: {
-                        frontmatter: {
-                            tags: {
-                                eq: $tag
-                            }
-                        }
-                    }
-                }
-            }
-            sort: { fields: childMarkdownRemark___frontmatter___date, order: DESC }
-        ) {
+        filteredFiles: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}, childrenMarkdownRemark: {elemMatch: {frontmatter: {tags: {eq: $tag}}}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
             totalCount
             nodes {
                 id
@@ -47,17 +33,13 @@ export const pageQuery: void = graphql`
                 name
             }
         }
-        allFilesForTags: allFile(
-            filter: {
-                extension: { eq: "md" }
-            }
-        ) {
+        allFilesForTags: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}}) {
             nodes {
-              childMarkdownRemark {
-                  frontmatter {
-                      tags
-                  }
-              }
+                childMarkdownRemark {
+                    frontmatter {
+                        tags
+                    }
+                }
             }
         }
     }

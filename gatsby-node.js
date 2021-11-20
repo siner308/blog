@@ -14,7 +14,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/blog-posts/"}}) {
         nodes {
           frontmatter {
             tags
@@ -56,4 +56,12 @@ exports.createPages = async function ({ actions, graphql }) {
       context: { tag },
     })
   })
+
+  // create about me page
+  data.allMarkdownRemark.nodes.forEach((node) => {
+    actions.createPage({
+      path: 'aboutme',
+      component: require.resolve(`${__dirname}/src/components/AboutMe.tsx`),
+    });
+  });
 };

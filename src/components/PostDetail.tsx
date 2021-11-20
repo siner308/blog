@@ -32,32 +32,6 @@ const PostDetail = ({ data }: any): JSX.Element => {
       <br/>
       <hr/>
       <Comments/>
-      <div
-        style={{
-          position: 'fixed',
-          zIndex: 99,
-          borderRadius: '10px',
-          bottom: '20px',
-          right: '30px',
-          border: 'none',
-          outline: 'none',
-          padding: '15px',
-          alignSelf: 'center',
-          fontSize: '18px',
-        }}
-      >
-        <button
-          style={{
-            cursor: 'pointer',
-          }}
-          onClick={(): void => {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-          }}
-        >
-          ⬆
-        </button>
-      </div>
     </Layout>
   );
 };
