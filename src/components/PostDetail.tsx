@@ -1,25 +1,13 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Layout from './layout';
-import { Helmet } from 'react-helmet';
+import { graphql } from 'gatsby';
+import Layout from './Layout';
 import Comments from './Comments';
-import Tag from './tag';
+import Tag from './Tag';
 
 const PostDetail = ({ data }: any): JSX.Element => {
-  const post = data.markdownRemark;
-  const site = data.site;
+  const { markdownRemark: post, site } = data;
   return (
-    <Layout>
-      <Helmet>
-        <meta charSet={'utf-8'}/>
-        <title>{post.frontmatter.title}</title>
-        <meta name="description" content={post.frontmatter.subtitle}/>
-      </Helmet>
-      <div>
-        <Link to={'/'} style={{ fontSize: 'large', color: 'black', textDecoration: 'none' }}>
-          <h1>{site.siteMetadata.siteName}</h1>
-        </Link>
-      </div>
+    <Layout title={post.frontmatter.title} siteName={site.siteMetadata.siteName}>
       <hr/>
       <div>
         <h1>{post.frontmatter.title}</h1>
@@ -77,21 +65,21 @@ const PostDetail = ({ data }: any): JSX.Element => {
 export default PostDetail;
 
 export const pageQuery: void = graphql`
-  query($slug: String!) {
-    site {
-      siteMetadata {
-        siteName
-      }
+    query($slug: String!) {
+        site {
+            siteMetadata {
+                siteName
+            }
+        }
+        markdownRemark(fields: { slug: { eq: $slug } }) {
+            html
+            tableOfContents(absolute: false)
+            frontmatter {
+                tags
+                title
+                subtitle
+                date(formatString: "YYYY/MM/DD")
+            }
+        }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
-      tableOfContents(absolute: false)
-      frontmatter {
-        tags
-        title
-        subtitle
-        date(formatString: "YYYY/MM/DD")
-      }
-    }
-  }
 `;

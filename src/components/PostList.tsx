@@ -1,7 +1,6 @@
 import React from 'react';
 import { AllFile, RemarkableFileSystemNode } from '../declarations';
-import Post from './post';
-import Tag from './tag';
+import Post from './Post';
 
 const PostList = ({ allFile }: { allFile: AllFile }): JSX.Element => {
   const { nodes, totalCount } = allFile;
