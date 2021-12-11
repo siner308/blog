@@ -43,7 +43,7 @@ exports.createPages = async function ({ actions, graphql }) {
   // create tag filter result
   const tags = [];
   data.allMarkdownRemark.nodes.forEach((node) => {
-    node.frontmatter.tags?.forEach((tag) => {
+    node.frontmatter.tags && node.frontmatter.tags.forEach((tag) => {
       if (!tags.includes(tag)) tags.push(tag);
     })
   })
