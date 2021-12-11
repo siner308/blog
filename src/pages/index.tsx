@@ -50,7 +50,7 @@ const Index = (props: IndexPageProps): JSX.Element => {
   const tags: string[] = [];
 
   allFilesForTags.nodes.forEach((node: RemarkableFileSystemNode) => {
-    node.childMarkdownRemark.frontmatter.tags.forEach((tag: string) => {
+    node.childMarkdownRemark.frontmatter.tags?.forEach((tag: string) => {
       if (!tags.includes(tag)) tags.push(tag);
     });
   });
