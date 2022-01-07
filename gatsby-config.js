@@ -82,5 +82,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-anchor-links',
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+    },
   ],
 };
