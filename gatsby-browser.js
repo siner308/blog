@@ -1,2 +1,3 @@
 require('prismjs/themes/prism.css');
-require('/table-of-contents.css');
+require('/stylesheets/table-of-contents.css');
+require('/stylesheets/quote.css');

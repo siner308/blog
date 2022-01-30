@@ -1,0 +1,9 @@
+/*.gatsby-highlight pre[class*="language-"] {*/
+/*  !*overflow: auto;*!*/
+/*  !*overflow: ;*!*/
+/*  line-break: auto;*/
+/*  display: inline-block;*/
+/*  overflow-wrap: break-word;*/
+/*!*  float: left; !* 1 *!*!*/
+/*!*  !*min-width: 100%; !* 2 *!*!*!*/
+/*}*/
