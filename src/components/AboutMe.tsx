@@ -14,7 +14,6 @@ const AboutMe = ({ data }: { data: AboutMeData }): JSX.Element => {
   const { markdownRemark: post, site } = data;
   return (
     <Layout title={'About Me'} siteName={site.siteMetadata.siteName}>
-      <hr/>
       <div dangerouslySetInnerHTML={{ __html: post.html }}/>
     </Layout>
   );
