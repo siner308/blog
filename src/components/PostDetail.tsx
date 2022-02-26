@@ -29,11 +29,10 @@ const PostDetail = ({ data }: { data: PostDetailData }): JSX.Element => {
     color: 'black',
   };
   return (
-    <Layout title={post.frontmatter.title} siteName={site.siteMetadata.siteName}>
-      <hr/>
+    <Layout title={post.frontmatter.title} siteName={site.siteMetadata.siteName} maxWidth={800}>
       <div>
         <h1>{post.frontmatter.title}</h1>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           <h3>{post.frontmatter.subtitle}</h3>
           <p>{post.frontmatter.date}</p>
         </div>

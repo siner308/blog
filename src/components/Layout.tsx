@@ -4,20 +4,21 @@ import { Helmet } from 'react-helmet';
 import Header from './Header';
 
 interface LayoutProps {
-  children?: React.ReactNode,
-  siteName: string,
-  title: string,
+  children?: React.ReactNode;
+  siteName: string;
+  title: string;
+  maxWidth?: number;
 }
 
 function Layout(props: LayoutProps): React.ReactElement {
-  const { children, title, siteName }: LayoutProps = props;
+  const { children, title, siteName, maxWidth }: LayoutProps = props;
   return (
     <div
       style={{
         margin: '0 auto',
         marginTop: rhythm(1),
         marginBottom: rhythm(1.5),
-        maxWidth: 1200,
+        maxWidth: maxWidth || 1200,
         paddingLeft: rhythm(3 / 4),
         paddingRight: rhythm(3 / 4),
       }}
@@ -27,6 +28,7 @@ function Layout(props: LayoutProps): React.ReactElement {
         <title>{title}</title>
       </Helmet>
       <Header siteName={siteName}/>
+      <hr/>
       {children}
       <div
         style={{
