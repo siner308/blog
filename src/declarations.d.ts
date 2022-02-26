@@ -9,6 +9,7 @@
 
 import { PageProps } from 'gatsby';
 import { FileSystemNode } from 'gatsby-source-filesystem';
+import { IGatsbyEdge } from 'gatsby/dist/schema/type-definitions';
 
 export interface IndexQueryProps {
   site: {
@@ -27,17 +28,19 @@ export interface AllFile {
   //   hasNextPage: boolean;
   //   hasPreviousPage: boolean;
   // };
-  nodes: MarkdownRemarkNode[];
+  edges: IGatsbyEdge<RemarkableFileSystemNode>[];
+  nodes: RemarkableFileSystemNode[];
 }
 
 export interface RemarkableFileSystemNode extends FileSystemNode {
-  childMarkdownRemark: ChileMarkdownRemark;
+  childMarkdownRemark: ChildMarkdownRemark;
 }
 
-export type ChileMarkdownRemark = {
+export type ChildMarkdownRemark = {
   id: string;
   excerpt: string;
   tableOfContents: string;
+  html: string;
   frontmatter: {
     title: string;
     subtitle: string;
