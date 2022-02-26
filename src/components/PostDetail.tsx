@@ -6,6 +6,7 @@ import Tag from './Tag';
 import { Site } from '../types/siteMetadata';
 import { AllFile, ChildMarkdownRemark } from '../declarations';
 import { getPostPath } from '../utils/date';
+import { backgroundStyle } from '../style/backgroundStyle';
 
 interface PostDetailData {
   site: Site;
@@ -19,9 +20,9 @@ const PostDetail = ({ data }: { data: PostDetailData }): JSX.Element => {
   if (!targetEdge) throw Error('target edge not found');
 
   const cursorStyle = {
+    ...backgroundStyle,
     borderRadius: 10,
     border: 'hidden',
-    backgroundColor: 'antiquewhite',
     padding: 20,
     width: '40%',
     textDecoration: 'none',

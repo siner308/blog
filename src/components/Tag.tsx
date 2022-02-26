@@ -1,5 +1,6 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { backgroundStyle } from '../style/backgroundStyle';
 
 export interface TagProps {
   tag: string;
@@ -11,8 +12,8 @@ const Tag = (props: TagProps): JSX.Element => {
   return (
     <Link to={`/tag/${tag.toLowerCase()}/`}><button
       style={{
+        ...backgroundStyle,
         marginRight,
-        backgroundColor: 'antiquewhite',
         borderRadius: '6px',
         border: 'hidden',
         padding: 2,

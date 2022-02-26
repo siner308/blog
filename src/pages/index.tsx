@@ -7,6 +7,7 @@ import { IndexPageProps, RemarkableFileSystemNode } from '../declarations';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import { Helmet } from 'react-helmet';
 import Tag from '../components/Tag';
+import { backgroundStyle } from '../style/backgroundStyle';
 
 deckDeckGoHighlightElement();
 
@@ -58,16 +59,19 @@ const Index = (props: IndexPageProps): JSX.Element => {
     <>
       <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName}>
         <PostList allFile={filteredFiles}/>
+        <br/>
         <div>
-          <Link to='/'><button
-            style={{
-              marginRight: 8,
-              backgroundColor: 'antiquewhite',
-              borderRadius: '6px',
-              border: 'hidden',
-              padding: 2,
-              cursor: 'pointer',
-            }}>#all</button>
+          <Link to="/">
+            <button
+              style={{
+                ...backgroundStyle,
+                marginRight: 8,
+                borderRadius: '6px',
+                border: 'hidden',
+                padding: 2,
+                cursor: 'pointer',
+              }}>#all
+            </button>
           </Link>
           {tags.sort().map((tag) => <Tag key={tag} tag={tag} marginRight={8}/>)}
         </div>
