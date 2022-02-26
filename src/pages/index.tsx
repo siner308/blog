@@ -5,7 +5,6 @@ import Footer from '../components/Footer';
 import PostList from '../components/PostList';
 import { IndexPageProps, RemarkableFileSystemNode } from '../declarations';
 import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
-import { Helmet } from 'react-helmet';
 import Tag from '../components/Tag';
 import { backgroundStyle } from '../style/backgroundStyle';
 
@@ -23,12 +22,14 @@ export const pageQuery: void = graphql`
             nodes {
                 id
                 childMarkdownRemark {
-                    excerpt(format: PLAIN, pruneLength: 210)
+                    excerpt(format: PLAIN, pruneLength: 500)
                     id
                     frontmatter {
                         title
                         subtitle
                         date(formatString: "YYYY/MM/DD")
+                        tags
+                        image
                     }
                 }
                 name

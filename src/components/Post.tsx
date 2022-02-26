@@ -15,25 +15,23 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
       style={{
         ...backgroundStyle, filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25))',
         textDecoration: 'none', color: 'black',
+        overflow: 'hidden',
+        height: '380px',
       }}
     >
-      <div
-        style={{
-          marginRight: 10,
-          marginLeft: 10,
-          paddingTop: 10,
-          paddingBottom: 10,
-        }}
-      >
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <p style={{ fontWeight: 'bold' }}>{childMarkdownRemark.frontmatter.title}</p>
+      {childMarkdownRemark.frontmatter.image ?
+        <img style={{ backgroundColor: 'white' }} src={childMarkdownRemark.frontmatter.image}
+             alt={childMarkdownRemark.frontmatter.image}
+             className={'post-card-image'}/>
+        : <></>}
+      <div style={{ padding: 10 }}>
+        <div style={{ marginBottom: 10 }}>
+          <span style={{ fontWeight: 'bold', fontSize: 'large' }}>{childMarkdownRemark.frontmatter.title}</span>
           <br/>
-          {/*<span>{`${dateJson.year}년 ${dateJson.month}월 ${dateJson.day}일`}</span>*/}
+          <span style={{ fontWeight: 'lighter', fontSize: 'small' }}>{childMarkdownRemark.frontmatter.subtitle}</span>
         </div>
-        {childMarkdownRemark.frontmatter.subtitle && (
-          <div style={{ fontWeight: 'normal' }}>{childMarkdownRemark.frontmatter.subtitle}</div>
-        )}
-        <div style={{ fontWeight: 'lighter', fontSize: 'small' }}>{childMarkdownRemark.excerpt}</div>
+        <hr/>
+        <p className="post-card-excerpt">{childMarkdownRemark.excerpt}</p>
       </div>
     </Link>
   );
