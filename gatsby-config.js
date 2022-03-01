@@ -89,5 +89,11 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-anchor-links',
     },
+    {
+      resolve: 'gatsby-plugin-google-adsense',
+      options: {
+        publisherId: `ca-pub-xxxxxxxxx`,
+      }
+    }
   ],
 };
