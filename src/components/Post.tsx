@@ -28,7 +28,7 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
         <div style={{ marginBottom: 10 }}>
           <span style={{ fontWeight: 'bold', fontSize: 'large' }}>{childMarkdownRemark.frontmatter.title}</span>
           <br/>
-          <span style={{ fontWeight: 'lighter', fontSize: 'small' }}>{childMarkdownRemark.frontmatter.subtitle}</span>
+          <span style={{ fontWeight: 'lighter', fontSize: '14px' }}>{childMarkdownRemark.frontmatter.subtitle}</span>
         </div>
         <hr/>
         <p className="post-card-excerpt">{childMarkdownRemark.excerpt}</p>
