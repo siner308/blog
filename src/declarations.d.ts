@@ -15,6 +15,7 @@ export interface IndexQueryProps {
   site: {
     siteMetadata: {
       siteName: string;
+      image: string;
     };
   };
   filteredFiles: AllFile;
