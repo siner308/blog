@@ -47,6 +47,7 @@ export type ChildMarkdownRemark = {
     date: string;
     tags: string[];
     image: string;
+    draft: string;
   };
 };
 
