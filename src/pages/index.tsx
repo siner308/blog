@@ -15,6 +15,7 @@ export const pageQuery: void = graphql`
         site {
             siteMetadata {
                 siteName
+                image
             }
         }
         filteredFiles: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}, childrenMarkdownRemark: {elemMatch: {frontmatter: {tags: {eq: $tag}, draft: {ne: true}}}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
@@ -58,7 +59,7 @@ const Index = (props: IndexPageProps): JSX.Element => {
   });
   return (
     <>
-      <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image || ''}>
+      <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image}>
         <PostList allFile={filteredFiles}/>
         <br/>
         <div>

@@ -26,6 +26,7 @@ export const pageQuery: void = graphql`
         site {
             siteMetadata {
                 siteName
+                image
             }
         }
         markdownRemark(fileAbsolutePath: {regex: "/aboutme/"}) {
