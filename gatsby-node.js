@@ -62,10 +62,8 @@ exports.createPages = async function ({ actions, graphql }) {
   });
 
   // create about me page
-  data.allMarkdownRemark.nodes.forEach((node) => {
-    actions.createPage({
-      path: 'aboutme',
-      component: require.resolve(`${__dirname}/src/components/AboutMe.tsx`),
-    });
+  actions.createPage({
+    path: 'aboutme',
+    component: require.resolve(`${__dirname}/src/components/AboutMe.tsx`),
   });
 };
