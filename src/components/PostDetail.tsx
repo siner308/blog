@@ -91,12 +91,14 @@ export const pageQuery: void = graphql`
         markdownRemark(fields: {slug: {eq: $slug}}) {
             id
             html
+            excerpt(format: PLAIN, pruneLength: 500)
             # tableOfContents(absolute: false)
             frontmatter {
                 tags
                 title
                 subtitle
                 date(formatString: "YYYY/MM/DD")
+                image
             }
         }
         cursor: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
