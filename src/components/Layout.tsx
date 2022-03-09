@@ -8,10 +8,12 @@ interface LayoutProps {
   siteName: string;
   title: string;
   maxWidth?: number;
+  image?: string;
+  excerpt?: string;
 }
 
 function Layout(props: LayoutProps): React.ReactElement {
-  const { children, title, siteName, maxWidth }: LayoutProps = props;
+  const { children, title, siteName, maxWidth, image, excerpt }: LayoutProps = props;
   return (
     <div
       style={{
@@ -24,8 +26,10 @@ function Layout(props: LayoutProps): React.ReactElement {
       }}
     >
       <Helmet>
-        <meta charSet={'utf-8'}/>
         <title>{title}</title>
+        <meta charSet={'utf-8'}/>
+        excerpt && <meta property="og:description" content={excerpt}/>
+        image && <meta property="og:image" content={image}/>
       </Helmet>
       <Header siteName={siteName}/>
       <hr/>

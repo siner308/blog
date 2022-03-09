@@ -58,7 +58,7 @@ const Index = (props: IndexPageProps): JSX.Element => {
   });
   return (
     <>
-      <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName}>
+      <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image || ''}>
         <PostList allFile={filteredFiles}/>
         <br/>
         <div>

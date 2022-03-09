@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     siteName: "Siner's Blog",
     githubUrl: 'https://github.com/siner308/blog',
+    image: 'https://avatars.githubusercontent.com/u/34048253?v=4'
   },
   plugins: [
     // `gatsby-plugin-typescript` is automatically included in gatsby
