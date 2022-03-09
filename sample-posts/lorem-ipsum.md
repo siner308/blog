@@ -5,6 +5,7 @@ tags:
 - sample
 date: 1970-01-01
 image: https://sample.com/image.jpg
+draft: true
 ---
 
 # What is Lorem Ipsum?

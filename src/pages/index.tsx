@@ -17,7 +17,7 @@ export const pageQuery: void = graphql`
                 siteName
             }
         }
-        filteredFiles: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}, childrenMarkdownRemark: {elemMatch: {frontmatter: {tags: {eq: $tag}}}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
+        filteredFiles: allFile(filter: {dir: {regex: "/blog-posts/"}, extension: {eq: "md"}, childrenMarkdownRemark: {elemMatch: {frontmatter: {tags: {eq: $tag}, draft: {ne: true}}}}}, sort: {fields: childMarkdownRemark___frontmatter___date, order: DESC}) {
             totalCount
             nodes {
                 id
