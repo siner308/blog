@@ -32,6 +32,11 @@ export const pageQuery: void = graphql`
                         tags
                         image
                     }
+                    fields {
+                        readingTime {
+                            text
+                        }
+                    }
                 }
                 name
             }

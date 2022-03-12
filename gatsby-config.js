@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteName: "Siner's Blog",
+    siteName: 'Siner\'s Blog',
     githubUrl: 'https://github.com/siner308/blog',
     image: 'https://avatars.githubusercontent.com/u/34048253?v=4'
   },
@@ -42,6 +42,9 @@ module.exports = {
           {
             resolve: 'gatsby-remark-prismjs',
           },
+          {
+            resolve: 'gatsby-remark-reading-time',
+          }
         ],
       },
     },
@@ -66,7 +69,7 @@ module.exports = {
         // should be an object or a function that is executed in the browser
         //
         // Defaults to null
-        defaultDataLayer: { platform: "gatsby" },
+        defaultDataLayer: { platform: 'gatsby' },
 
         // Specify optional GTM environment details.
         // gtmAuth: "YOUR_GOOGLE_TAGMANAGER_ENVIRONMENT_AUTH_STRING",
