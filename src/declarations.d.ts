@@ -50,6 +50,14 @@ export type ChildMarkdownRemark = {
     image: string;
     draft: string;
   };
+  fields: {
+    readingTime: {
+      text: string;
+      // minutes: number;
+      // time: number;
+      // words: number;
+    }
+  }
 };
 
 export type IndexPageProps = PageProps<IndexQueryProps>;
