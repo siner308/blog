@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, StaticQueryDocument } from 'gatsby';
 import Layout from './Layout';
 import Comments from './Comments';
 import Tag from './Tag';
@@ -14,7 +14,7 @@ interface PostDetailData {
   cursor: AllFile;
 }
 
-export const pageQuery: void = graphql`
+export const pageQuery: StaticQueryDocument = graphql`
     query ($slug: String) {
         site {
             siteMetadata {

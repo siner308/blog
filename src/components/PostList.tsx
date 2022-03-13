@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { AllFile, RemarkableFileSystemNode } from '../declarations';
 import Post from './Post';
 

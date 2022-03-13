@@ -98,6 +98,9 @@ module.exports = {
       options: {
         publisherId: `ca-pub-8228498239398986`,
       }
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
     }
   ],
 };
