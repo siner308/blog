@@ -65,12 +65,12 @@ const Index = (props: IndexPageProps): JSX.Element => {
   return (
     <>
       <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image}>
-        <div>
+        <PostList allFile={filteredFiles}/>
+        <br/>
+        <div style={{lineHeight: 2}}>
           <Tag key={'all'} name={'all'} url={'/'} marginRight={8}/>
           {tags.sort().map((tag) => <Tag key={tag} name={tag} url={`/tag/${tag.toLowerCase()}/`} marginRight={8}/>)}
         </div>
-        <br/>
-        <PostList allFile={filteredFiles}/>
         <Footer/>
       </Layout>
     </>
