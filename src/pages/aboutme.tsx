@@ -14,7 +14,7 @@ interface AboutMeData {
 const Aboutme = ({ data }: { data: AboutMeData }): JSX.Element => {
   const { markdownRemark: post, site } = data;
   return (
-    <Layout title={'About Me'} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image} maxWidth={800}>
+    <Layout title={'About Me'} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image} maxWidth={840}>
       <Content>
         <div dangerouslySetInnerHTML={{ __html: post.html }}/>
       </Content>
