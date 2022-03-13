@@ -4,10 +4,7 @@ import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 import PostList from '../components/PostList';
 import { IndexPageProps, RemarkableFileSystemNode } from '../declarations';
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import Tag from '../components/Tag';
-
-deckDeckGoHighlightElement();
 
 export const pageQuery: StaticQueryDocument = graphql`
     query IndexQuery($tag: String) {

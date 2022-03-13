@@ -40,7 +40,11 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              terminal: 'carbon',
+              theme: 'material',
+            }
           },
           {
             resolve: 'gatsby-remark-reading-time',
