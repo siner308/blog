@@ -5,16 +5,14 @@ import { backgroundStyle } from '../style/backgroundStyle';
 export interface TagProps {
   name: string;
   url: string;
-  marginRight: number;
 }
 
 const Tag = (props: TagProps): JSX.Element => {
-  const { name, url, marginRight } = props;
+  const { name, url } = props;
   return (
     <Link to={url}><button
       style={{
         ...backgroundStyle,
-        marginRight,
         borderRadius: '6px',
         border: 'hidden',
         padding: 2,

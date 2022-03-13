@@ -63,9 +63,13 @@ const Index = (props: IndexPageProps): JSX.Element => {
       <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image}>
         <PostList allFile={filteredFiles}/>
         <br/>
-        <div>
-          <Tag key={'all'} name={'all'} url={'/'} marginRight={8}/>
-          {tags.sort().map((tag) => <Tag key={tag} name={tag} url={`/tag/${tag.toLowerCase()}/`} marginRight={8}/>)}
+        <div style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: 8,
+        }}>
+          <Tag key={'all'} name={'all'} url={'/'}/>
+          {tags.sort().map((tag) => <Tag key={tag} name={tag} url={`/tag/${tag.toLowerCase()}/`}/>)}
         </div>
         <Footer/>
       </Layout>
