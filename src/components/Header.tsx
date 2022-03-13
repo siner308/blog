@@ -1,9 +1,10 @@
 import { Link } from 'gatsby';
 import React from 'react';
+import { rhythm } from '../utils/typography';
 
 function Header({ siteName }: { siteName: string }): React.ReactElement {
   return (
-    <div style={{justifyContent: 'space-between', display: 'flex', alignItems: 'baseline'}}>
+    <div style={{ paddingTop: rhythm(1), justifyContent: 'space-between', display: 'flex', alignItems: 'baseline' }}>
       <Link to={'/'} style={{ fontSize: 'large', color: 'black', textDecoration: 'none' }}>
         <h1>{siteName}</h1>
       </Link>

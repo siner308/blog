@@ -1,9 +1,9 @@
 import { CSSProperties } from 'react';
 
 export const backgroundStyle: CSSProperties | { [key: string]: string | number } = {
-  background: 'rgba( 255, 231, 84, 0.3 )',
-  boxShadow: '0 4px 16px 0 rgba( 31, 38, 135, 0.37 )',
-  backdropFilter: 'blur( 8px )',
-  '-webkit-backdrop-filter': 'blur( 8px )',
-  borderRadius: '10px',
+  background: 'white',
+  boxShadow: '0 8px 8px 0 rgba( 0, 0, 0, 0.37 )',
+  backdropFilter: 'blur( 8.5px )',
+  '-webkit-backdrop-filter': 'blur( 8.5px )',
+  borderRadius: 20,
 };

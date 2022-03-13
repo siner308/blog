@@ -16,11 +16,11 @@ const Footer: React.FC = () => {
         backgroundColor: 'white',
       }}
     >
-      <span style={{ margin: '0 .1rem' }}>
-        Deployed by <Link to={netlifyUrl}>Netlify</Link>
+      <span style={{ margin: '1rem' }}>
+        Deployed by <Link to={netlifyUrl} style={{color: 'black'}}>Netlify</Link>
       </span>
       <span>
-        Source code on <Link to={githubUrl}>Github</Link>
+        Source code on <Link to={githubUrl} style={{color: 'black'}}>Github</Link>
       </span>
     </div>
   );

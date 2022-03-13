@@ -28,13 +28,20 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
         <div style={{ marginBottom: 10 }}>
           <span style={{ fontWeight: 'bold', fontSize: 'large' }}>{childMarkdownRemark.frontmatter.title}</span>
           <br/>
-          {childMarkdownRemark.frontmatter.subtitle && <><span style={{ fontWeight: 'lighter', fontSize: '14px' }}>{childMarkdownRemark.frontmatter.subtitle}</span><br/></>}
-          <div style={{display: 'flex', justifyContent: 'space-between'}}>
-            <span style={{fontWeight: 'lighter', fontSize: '14px'}}>{childMarkdownRemark.fields.readingTime.text}</span>
-            <span style={{fontWeight: 'lighter', fontSize: '14px'}}>{`${dateJson.year}.${dateJson.month}.${dateJson.day}`}</span>
+          {childMarkdownRemark.frontmatter.subtitle && <><span style={{
+            fontWeight: 'lighter',
+            fontSize: '14px',
+          }}>{childMarkdownRemark.frontmatter.subtitle}</span><br/></>}
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span
+              style={{ fontWeight: 'lighter', fontSize: '14px' }}>{childMarkdownRemark.fields.readingTime.text}</span>
+            <span style={{
+              fontWeight: 'lighter',
+              fontSize: '14px',
+            }}>{`${dateJson.year}.${dateJson.month}.${dateJson.day}`}</span>
           </div>
         </div>
-        <hr style={{marginBottom: '10px' }}/>
+        <hr style={{ marginBottom: '10px' }}/>
         <p className="post-card-excerpt">{childMarkdownRemark.excerpt}</p>
       </div>
     </Link>

@@ -39,7 +39,7 @@ exports.createPages = async function ({ actions, graphql }) {
     const path = `${dateForPath}${slug}`;
     actions.createPage({
       path,
-      component: require.resolve(`${__dirname}/src/components/PostDetail.tsx`),
+      component: require.resolve(`${__dirname}/src/pages/detail.tsx`),
       context: { slug },
     });
   });
@@ -64,6 +64,6 @@ exports.createPages = async function ({ actions, graphql }) {
   // create about me page
   actions.createPage({
     path: 'aboutme',
-    component: require.resolve(`${__dirname}/src/components/AboutMe.tsx`),
+    component: require.resolve(`${__dirname}/src/pages/aboutme.tsx`),
   });
 };
