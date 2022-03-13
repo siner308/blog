@@ -1,16 +1,12 @@
-import { graphql, Link } from 'gatsby';
+import { graphql, StaticQueryDocument } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout';
 import Footer from '../components/Footer';
 import PostList from '../components/PostList';
 import { IndexPageProps, RemarkableFileSystemNode } from '../declarations';
-import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
 import Tag from '../components/Tag';
-import { backgroundStyle } from '../style/backgroundStyle';
 
-deckDeckGoHighlightElement();
-
-export const pageQuery: void = graphql`
+export const pageQuery: StaticQueryDocument = graphql`
     query IndexQuery($tag: String) {
         site {
             siteMetadata {
@@ -67,7 +63,7 @@ const Index = (props: IndexPageProps): JSX.Element => {
       <Layout title={site.siteMetadata.siteName} siteName={site.siteMetadata.siteName} image={site.siteMetadata.image}>
         <PostList allFile={filteredFiles}/>
         <br/>
-        <div style={{lineHeight: 2}}>
+        <div style={{ lineHeight: 2 }}>
           <Tag key={'all'} name={'all'} url={'/'} marginRight={8}/>
           {tags.sort().map((tag) => <Tag key={tag} name={tag} url={`/tag/${tag.toLowerCase()}/`} marginRight={8}/>)}
         </div>

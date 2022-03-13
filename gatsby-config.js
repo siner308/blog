@@ -40,7 +40,11 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: 'gatsby-remark-highlight-code',
+            options: {
+              terminal: 'carbon',
+              theme: 'material',
+            }
           },
           {
             resolve: 'gatsby-remark-reading-time',
@@ -98,6 +102,9 @@ module.exports = {
       options: {
         publisherId: `ca-pub-8228498239398986`,
       }
+    },
+    {
+      resolve: 'gatsby-plugin-postcss',
     }
   ],
 };

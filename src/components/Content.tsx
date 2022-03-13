@@ -1,5 +1,7 @@
 import React from 'react';
-// import '@primer/css/index.scss';
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+
+deckDeckGoHighlightElement();
 
 interface ContentProps {
   children?: React.ReactNode;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, StaticQueryDocument } from 'gatsby';
 import Layout from './Layout';
 import { Site } from '../types/siteMetadata';
 import Content from './Content';
@@ -11,7 +11,7 @@ interface AboutMeData {
   };
 }
 
-export const pageQuery: void = graphql`
+export const pageQuery: StaticQueryDocument = graphql`
     query {
         site {
             siteMetadata {
