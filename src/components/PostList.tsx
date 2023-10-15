@@ -1,14 +1,17 @@
 import React from 'react';
 import { AllFile, RemarkableFileSystemNode } from '../declarations';
-import Post from './Post';
+import PostCard from './PostCard';
 
-const PostList = ({ allFile }: { allFile: AllFile }): JSX.Element => {
-  const { nodes, totalCount } = allFile;
+type Props = {
+  nodes: Array<RemarkableFileSystemNode>;
+}
+
+const PostList = (props: Props): JSX.Element => {
+  const { nodes } = props;
   return (
     <div>
-      <p>{totalCount}개의 게시글이 있습니다.</p>
       <div className='post-grid'>
-        {totalCount && nodes.map((node: RemarkableFileSystemNode) => <Post key={node.id} node={node}/>)}
+        {nodes.length ? nodes.map((node: RemarkableFileSystemNode) => <PostCard key={node.id} node={node}/>) : null}
       </div>
     </div>
   );

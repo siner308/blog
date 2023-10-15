@@ -15,12 +15,7 @@ interface LayoutProps {
 function Layout(props: LayoutProps): React.ReactElement {
   const { children, title, siteName, maxWidth, image, excerpt }: LayoutProps = props;
   return (
-    <div style={{
-      backgroundImage: 'url(\'https://user-images.githubusercontent.com/34048253/158046911-b5ec692a-b26e-4f57-89c5-8911437eabca.png\')',
-      backgroundRepeat: 'repeat',
-      backgroundSize: '200px 200px',
-    }}>
-
+    <div>
       <div
         style={{
           margin: '0 auto',

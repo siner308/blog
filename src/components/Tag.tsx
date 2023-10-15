@@ -1,23 +1,29 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { backgroundStyle } from '../style/backgroundStyle';
+import { isBrowser } from '../utils/browser';
 
 export interface TagProps {
-  name: string;
-  url: string;
+  value: string;
 }
 
-const Tag = (props: TagProps): JSX.Element => {
-  const { name, url } = props;
+const Tag = (props: TagProps) => {
+  if (!isBrowser()) {
+    return null;
+  }
+
+  const { value } = props;
+  const search = new URLSearchParams(window.location.search);
+  const tag = value || search.get('tag');
+  const url = tag === 'all' ? `/?page=1` : `/?page=1&tag=${value}`;
   return (
-    <Link to={url}><button
+    <Link
       style={{
-        ...backgroundStyle,
-        borderRadius: '6px',
-        border: 'hidden',
-        padding: 2,
-        cursor: 'pointer',
-      }}>#{name.toLowerCase()}</button>
+        textDecoration: 'none',
+      }}
+      to={url}
+    >
+      <code>#{value}</code>
     </Link>
   );
 };

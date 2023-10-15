@@ -8,9 +8,9 @@ a {
 
 code {
   background-color: lightgray;
-  border-radius: 5px;
-  padding: 0 5px;
-  margin-right: 4px;
+  border-radius: 0.4rem;
+  padding: 0.1rem 0.5rem;
+  margin-right: 0.5rem;
 
   &:last-child {
     margin-right: 0;
@@ -31,8 +31,8 @@ h2 {
 }
 
 ul {
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 li > p, li > ul, ul > li, p {
@@ -45,7 +45,7 @@ hr {
   margin-bottom: 2rem;
 }
 
-a > hr {
-  margin-top: 0.5rem;
+a > hr, div > hr {
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
