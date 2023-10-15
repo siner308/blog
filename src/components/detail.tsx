@@ -89,7 +89,7 @@ const detail = ({ data }: { data: PostDetailData }): JSX.Element => {
         <div dangerouslySetInnerHTML={{ __html: post.html }}/>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
           {post.frontmatter.tags && post.frontmatter.tags.map((tag: string) => {
-            return <Tag name={tag} url={`/tag/${tag.toLowerCase()}/`}/>;
+            return <Tag value={tag} />;
           })}
         </div>
         <br/>

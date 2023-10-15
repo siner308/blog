@@ -4,7 +4,7 @@ import { RemarkableFileSystemNode } from '../declarations';
 import { DateJson, getDateJson, getPostPath } from '../utils/date';
 import { backgroundStyle } from '../style/backgroundStyle';
 
-const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
+const PostCard = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
   const { childMarkdownRemark } = node;
   const dateJson: DateJson = getDateJson(node.childMarkdownRemark.frontmatter.date);
   // TODO: https://sohee1702.tistory.com/117?category=788998 포스트잇 효과도 이뻐보인다
@@ -13,10 +13,12 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
     <Link
       to={getPostPath(node.childMarkdownRemark.frontmatter.date, node.name)}
       style={{
-        ...backgroundStyle, filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25))',
-        textDecoration: 'none', color: 'black',
+        ...backgroundStyle,
+        filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.25))',
+        textDecoration: 'none',
+        color: 'black',
         overflow: 'hidden',
-        height: '380px',
+        height: 'auto',
       }}
     >
       {childMarkdownRemark.frontmatter.image ?
@@ -48,4 +50,4 @@ const Post = ({ node }: { node: RemarkableFileSystemNode }): JSX.Element => {
   );
 };
 
-export default Post;
+export default PostCard;

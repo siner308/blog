@@ -13,24 +13,25 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
-    query {
-      allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/blog-posts/"}}) {
-        nodes {
-          frontmatter {
-            tags
-            date(formatString: "YYYY/MM/DD")
-            draft
-          }
-          fields {
-            slug
-          }
-        }
+query TagQuery {
+  allMarkdownRemark(
+    filter: {fileAbsolutePath: {regex: "/blog-posts/"}, frontmatter: {draft: {ne: true}}}
+  ) {
+    nodes {
+      frontmatter {
+        tags
+        date(formatString: "YYYY/MM/DD")
+        draft
+      }
+      fields {
+        slug
       }
     }
+  }
+}
   `);
 
   const publishedPosts = data.allMarkdownRemark.nodes
-    .filter((node) => node.frontmatter.draft !== true);
 
   // create each pages
   publishedPosts.forEach((node) => {
@@ -41,23 +42,6 @@ exports.createPages = async function ({ actions, graphql }) {
       path,
       component: require.resolve(`${__dirname}/src/components/detail.tsx`),
       context: { slug },
-    });
-  });
-
-  // create tag filter result
-  const tags = [];
-  publishedPosts.forEach((node) => {
-    node.frontmatter.tags && node.frontmatter.tags.forEach((tag) => {
-      if (!tags.includes(tag)) tags.push(tag);
-    });
-  });
-
-  tags.forEach((tag) => {
-    const path = `tag/${tag}`;
-    actions.createPage({
-      path,
-      component: require.resolve(`${__dirname}/src/pages/index.tsx`),
-      context: { tag },
     });
   });
 
