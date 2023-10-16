@@ -96,7 +96,6 @@ const Index = (props: IndexPageProps) => {
           flexWrap: 'wrap',
           gap: 8,
         }}>
-          <Tag key={'all'} value={'all'} />
           {tags.sort().map((tag) => <Tag key={tag} value={tag} />)}
         </div>
         <hr/>

@@ -17,6 +17,7 @@
   "sideEffects": false,
   "dependencies": {
     "@deckdeckgo/highlight-code": "^4.1.0",
+    "fontsource-noto-sans-kr": "^4.0.0",
     "gatsby": "^4.9.3",
     "gatsby-plugin-anchor-links": "^1.2.1",
     "gatsby-plugin-google-adsense": "^1.1.3",

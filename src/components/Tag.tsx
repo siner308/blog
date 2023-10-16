@@ -15,15 +15,20 @@ const Tag = (props: TagProps) => {
   const { value } = props;
   const search = new URLSearchParams(window.location.search);
   const tag = value || search.get('tag');
-  const url = tag === 'all' ? `/?page=1` : `/?page=1&tag=${value}`;
+  const selected = search.get('tag') === value;
+  const url = selected ? `/?page=1` : `/?page=1&tag=${value}`;
   return (
     <Link
       style={{
         textDecoration: 'none',
+        ...(selected && {
+          fontWeight: 'bold',
+          color: 'black',
+        }),
       }}
       to={url}
     >
-      <code>#{value}</code>
+      <code>{value}</code>
     </Link>
   );
 };
