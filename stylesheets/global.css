@@ -1,6 +1,6 @@
 deckgo-highlight-code {
   --deckgo-highlight-code-carbon-toolbar-display: none;
-  --deckgo-highlight-code-font-family: "Noto Sans KR", sans-serif;
+  --deckgo-highlight-code-font-family: monospace;
 }
 
 *, code {
