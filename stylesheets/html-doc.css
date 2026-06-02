@@ -32,6 +32,8 @@
   padding: var(--space-3);
   line-height: 1.7;
   font-size: 1.0625rem;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .html-doc * { box-sizing: border-box; }
@@ -112,6 +114,7 @@
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .html-doc figure { margin: var(--space-3) 0; }
@@ -130,6 +133,23 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
+
+/* Wide tables scroll horizontally instead of overflowing the post column. */
+.html-doc .table-scroll { overflow-x: auto; margin-block: var(--space-2); }
+.html-doc .table-scroll table { min-width: 38rem; }
+.html-doc th:first-child,
+.html-doc td:first-child { white-space: nowrap; }
+
+.html-doc .legend {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+}
+.html-doc .legend span { display: inline-flex; align-items: center; gap: 0.4em; }
+.html-doc .dot { width: 0.8em; height: 0.8em; border-radius: 50%; display: inline-block; }
 
 .html-doc .toc { columns: 2; gap: var(--space-3); }
 .html-doc .toc a { color: var(--link); }
