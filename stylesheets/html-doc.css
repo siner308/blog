@@ -1,0 +1,154 @@
+/*
+ * .html-doc — self-contained dark "learning document" widget.
+ * Embed rich HTML posts (SVG diagrams, tables, callouts) inside a single
+ * <div class="html-doc"> in a markdown post. Every rule here is scoped under
+ * .html-doc so it never leaks to the rest of the blog, and the selectors are
+ * specific enough to win over the global code/a/em/h1/h2/hr rules in global.css.
+ *
+ * Per-post palette overrides go inline on the wrapper, e.g.
+ *   <div class="html-doc" style="--accent:#d2a8ff">
+ */
+
+.html-doc {
+  --bg: #0d1117;
+  --panel: #161b22;
+  --panel-2: #1c2330;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #9098a3;
+  --link: #00b8d4;
+  --accent: #d2a8ff;
+  --warn: #ffb454;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --radius: 12px;
+
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  line-height: 1.7;
+  font-size: 1.0625rem;
+}
+
+.html-doc * { box-sizing: border-box; }
+
+.html-doc h2 {
+  font-size: 1.5rem;
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+  padding-bottom: var(--space-1);
+  border-bottom: 2px solid var(--border);
+  color: var(--text);
+}
+
+.html-doc h3 {
+  font-size: 1.2rem;
+  margin-top: var(--space-3);
+  color: var(--accent);
+}
+
+.html-doc p { margin-block: var(--space-2); }
+
+.html-doc a {
+  color: var(--link);
+  text-decoration: none;
+}
+.html-doc a:hover { text-decoration: underline; }
+
+.html-doc em { color: var(--muted); }
+
+/* Override the global lightgray code chip with the dark variant. */
+.html-doc code {
+  background: var(--panel-2);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  margin: 0;
+  font-family: "SF Mono", "JetBrains Mono", Menlo, monospace;
+  font-size: 0.9em;
+  color: var(--link);
+}
+
+.html-doc .panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+  margin-block: var(--space-3);
+}
+
+.html-doc .callout {
+  border-left: 4px solid var(--accent);
+  background: var(--panel-2);
+  padding: var(--space-2) var(--space-3);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  margin-block: var(--space-3);
+}
+.html-doc .callout.warn { border-left-color: var(--warn); }
+.html-doc .callout strong { color: var(--accent); }
+.html-doc .callout.warn strong { color: var(--warn); }
+
+.html-doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: var(--space-2);
+  font-size: 0.95rem;
+}
+.html-doc th,
+.html-doc td {
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.html-doc th { background: var(--panel-2); }
+
+.html-doc .tag {
+  display: inline-block;
+  padding: 0.1em 0.6em;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.html-doc figure { margin: var(--space-3) 0; }
+.html-doc figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  margin-top: var(--space-1);
+}
+
+.html-doc svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.html-doc .toc { columns: 2; gap: var(--space-3); }
+.html-doc .toc a { color: var(--link); }
+
+.html-doc .src { color: var(--muted); font-size: 0.85rem; }
+
+.html-doc hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin-block: var(--space-4);
+}
+
+.html-doc .twocol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+@media (max-width: 40rem) {
+  .html-doc .twocol { grid-template-columns: 1fr; }
+  .html-doc .toc { columns: 1; }
+}

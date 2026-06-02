@@ -4,3 +4,4 @@ require('/stylesheets/quote.css');
 require('/stylesheets/post-grid.css');
 require('/stylesheets/post-card.css');
 require('/stylesheets/global.css');
+require('/stylesheets/html-doc.css');
